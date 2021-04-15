@@ -1,0 +1,5 @@
+temp_1;ip address;port;community;oid 
+temp_2;ip address;port;community;oid 
+temp_3;ip address;port;community;oid 
+
+

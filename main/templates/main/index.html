@@ -1,0 +1,97 @@
+
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <!--- автообновление страницы --->
+    <meta http-equiv="Refresh" content="10" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Главная страница</title>
+
+    <style>
+
+
+        table {
+        /* width: 100%;  Ширина таблицы */
+        width: 1000px; /* Ширина таблицы width: 1000px;*/
+        border: 1px solid #BC8F8F; /* Рамка вокруг таблицы  border: 1px solid green; */
+        margin: auto; /* Выравниваем таблицу по центру окна  */
+        background: #808080;
+        }
+        td {
+             text-align: center; /* Выравниваем текст по центру ячейки */
+             }
+
+        .colortextred {
+                        color: red; /* Красный цвет выделения */
+                    }
+        .colortextmaroon {
+                        color: #800000; /* Красный цвет выделения */
+                    }
+        .colortextyellow {
+                        color: yellow; /* желтый */
+                    }
+        .colortextgreen {
+                        color: #00FF00; /* зеленый green*/
+                    }
+        .colortextolive {
+                        color: #4B0082; /* зеленый */
+                    }
+
+        body {
+                background: #FFFFFF; /* Цвет фона */
+                /*color: #fc0;  Цвет текста */
+             }
+    </style>
+
+
+</head>
+<body>
+<h1 style="text-align:center">Мониторинг</h1>
+
+
+    <form action="" method="POST" >
+      {% csrf_token %}
+      {{ register.as_p }}
+    <button type="submit" name="htmlbutton1">Старт</button>
+        {% csrf_token %}
+      {{ login.as_p }}
+    <button type="submit" name="htmlbutton2">Стоп</button>
+    </form>
+
+<p>Статус программы: {{ message | safe  }}</p>
+<p>Время паузы: {{ messtime | safe  }}</p>
+
+
+<br>
+ <table border="1">
+   <tr>
+    <th><h1>Серверная 1</h1></th>
+    <th><h1>Серверная 2</h1></th>
+    <th><h1>Серверная 3</h1></th>
+   </tr>
+   <tr>
+       <td><h1>{{ temp1 | safe  }}</h1></td>
+       <td><h1>{{ temp2 | safe  }}</h1></td>
+       <td><h1>{{ temp3 | safe  }}</h1></td>
+     </tr>
+
+ </table>
+
+<br><br><br>
+
+ <table border="1">
+     <tr>
+        <td colspan="5" style="text-align:center"><h1>Статус работы серверов и оборудования.</h1></td>
+     </tr>
+      <tr>
+        <td  class="accessorybgcolor13" colspan="3" ><h1>{{ result | safe }}</h1></td>
+     </tr>
+ </table>
+
+</body>
+</html>
